@@ -11,7 +11,7 @@ public class TestRestfulService {
 	@GET
     public String sayHello(@PathParam("name")String name) {
 		JsonObject jObj = new JsonObject();
-		jObj.addProperty("test_string", "hello world");
+		jObj.addProperty("test_string", "this is a test string");
         return jObj.toString();
     }
 }
