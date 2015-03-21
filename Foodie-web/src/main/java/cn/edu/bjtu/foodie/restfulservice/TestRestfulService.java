@@ -6,7 +6,7 @@ import javax.ws.rs.PathParam;
 
 import com.google.gson.JsonObject;
 
-@Path("test")
+@Path("/")
 public class TestRestfulService {
 	@GET
     public String sayHello(@PathParam("name")String name) {
