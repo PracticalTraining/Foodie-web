@@ -3,7 +3,7 @@
 <html lang="en"><!--<![endif]--> 
 	<head>
 		<meta charset="utf-8">
-		<title>Dashboard - Akira</title>
+		<title>Projects - Akira</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Akira</a>
 						<div class="nav-collapse">
 							<ul class="nav">
-								<li class="active">
+								<li>
 									<a href="index.html">Dashboard</a>
 								</li>
 								<li>
@@ -78,11 +78,11 @@
 							<li class="nav-header">
 								Akira
 							</li>
-							<li class="active">
-								<a href="index.htm"><i class="icon-white icon-home"></i> Dashboard</a>
-							</li>
 							<li>
-								<a href="projects.htm"><i class="icon-folder-open"></i> Projects</a>
+								<a href="index.html"><i class="icon-home"></i> Dashboard</a>
+							</li>
+							<li class="active">
+								<a href="projects.htm"><i class="icon-white icon-folder-open"></i> Projects</a>
 							</li>
 							<li>
 								<a href="tasks.htm"><i class="icon-check"></i> Tasks</a>
@@ -124,55 +124,28 @@
 				</div>
 				<div class="span9">
 					<h1>
-						Dashboard
+						Projects
 					</h1>
-					<div class="hero-unit">
-						<h1>
-							Welcome!
-						</h1>
-						<p>
-							To get the most out of Akira start with our 3 minute tour.
-						</p>
-						<p>
-							<a href="help.htm" class="btn btn-primary btn-large">Start Tour</a> <a class="btn btn-large">No Thanks</a>
-						</p>
-					</div>
-					<div class="well summary">
-						<ul>
-							<li>
-								<a href="#"><span class="count">3</span> Projects</a>
-							</li>
-							<li>
-								<a href="#"><span class="count">27</span> Tasks</a>
-							</li>
-							<li>
-								<a href="#"><span class="count">7</span> Messages</a>
-							</li>
-							<li class="last">
-								<a href="#"><span class="count">5</span> Files</a>
-							</li>
-						</ul>
-					</div>
-					<h2>
-						Recent Activity
-					</h2>
 					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
 								<th>
-									Project
+									Name
 								</th>
 								<th>
 									Client
 								</th>
 								<th>
-									Type
+									Tasks
 								</th>
 								<th>
-									Date
+									Messages
 								</th>
 								<th>
-									View
+									Files
+								</th>
+								<th>
+									Progress
 								</th>
 							</tr>
 						</thead>
@@ -185,47 +158,18 @@
 									Monsters Inc
 								</td>
 								<td>
-									New Task
+									<span class="badge">11</span>
 								</td>
 								<td>
-									4 days ago
+									<span class="badge">2</span>
 								</td>
 								<td>
-									<a href="#" class="view-link">View</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Nike.com Redesign
+									<span class="badge">4</span>
 								</td>
 								<td>
-									Monsters Inc
-								</td>
-								<td>
-									New Message
-								</td>
-								<td>
-									5 days ago
-								</td>
-								<td>
-									<a href="#" class="view-link">View</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Nike.com Redesign
-								</td>
-								<td>
-									Monsters Inc
-								</td>
-								<td>
-									New Project
-								</td>
-								<td>
-									5 days ago
-								</td>
-								<td>
-									<a href="#" class="view-link">View</a>
+									<div class="progress">
+										<div class="bar" style="width: 60%;"></div>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -236,13 +180,18 @@
 									Bad Robot
 								</td>
 								<td>
-									New Task
+									<span class="badge">7</span>
 								</td>
 								<td>
-									6 days ago
+									<span class="badge">3</span>
 								</td>
 								<td>
-									<a href="#" class="view-link">View</a>
+									<span class="badge">0</span>
+								</td>
+								<td>
+									<div class="progress">
+										<div class="bar" style="width: 90%;"></div>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -253,78 +202,49 @@
 									Evil Genius
 								</td>
 								<td>
-									New Message
+									<span class="badge">10</span>
 								</td>
 								<td>
-									9 days ago
+									<span class="badge">2</span>
 								</td>
 								<td>
-									<a href="#" class="view-link">View</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Twitter Server Consulting
+									<span class="badge">1</span>
 								</td>
 								<td>
-									Bad Robot
-								</td>
-								<td>
-									New Task
-								</td>
-								<td>
-									16 days ago
-								</td>
-								<td>
-									<a href="#" class="view-link">View</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Twitter Server Consulting
-								</td>
-								<td>
-									Bad Robot
-								</td>
-								<td>
-									New Project
-								</td>
-								<td>
-									16 days ago
-								</td>
-								<td>
-									<a href="#" class="view-link">View</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Twitter Server Proposal
-								</td>
-								<td>
-									Bad Robot
-								</td>
-								<td>
-									Completed Project
-								</td>
-								<td>
-									20 days ago
-								</td>
-								<td>
-									<a href="#" class="view-link">View</a>
+									<div class="progress">
+										<div class="bar" style="width: 20%;"></div>
+									</div>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-					<ul class="pager">
-						<li class="next">
-							<a href="activity.htm">More &rarr;</a>
-						</li>
-					</ul>
-                    <ul class="pager">
-						<li class="next">
-							More Templates <a href="http://www.mycodes.net/" target="_blank">源码之家</a> <a href="http://www.mycodes.net/153/" title="网页模板" target="_blank">网页模板</a>
-						</li>
-					</ul>
+					<a class="toggle-link" href="#new-project"><i class="icon-plus"></i> New Project</a>
+					<form id="new-project" class="form-horizontal hidden">
+						<fieldset>
+							<legend>New Project</legend>
+							<div class="control-group">
+								<label class="control-label" for="input01">Project Name</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="input01" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="select01">Client</label>
+								<div class="controls">
+									<select id="select01"> <option>-- Select client --</option> <option>Bad Robot</option> <option>Evil Genius</option> <option>Monsters Inc</option> </select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="textarea">Project Summary</label>
+								<div class="controls">
+									<textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">Create</button> <button class="btn">Cancel</button>
+							</div>
+						</fieldset>
+					</form>
 				</div>
 			</div>
 		</div>
