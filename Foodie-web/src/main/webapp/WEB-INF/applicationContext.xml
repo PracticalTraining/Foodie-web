@@ -61,7 +61,7 @@
 	<bean name="adminDao" class="cn.edu.bjtu.foodie.dao.AdminDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
-	<bean name="friendDao" class="cn.edu.bjtu.foodie.dao.AdminDao">
+	<bean name="friendDao" class="cn.edu.bjtu.foodie.dao.FriendDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
 	<!-- Action -->

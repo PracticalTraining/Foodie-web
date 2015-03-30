@@ -34,8 +34,15 @@ public class FriendRestfulService {
 	
 	{
 		// initialize direct children links
+		friendChildrenLinks = new JsonArray();
 		RestfulServiceUtil.addChildrenLinks(friendChildrenLinks,
-				"search customer", "/search", "GET");
+				"add friend", "/{id}", "POST");
+		RestfulServiceUtil.addChildrenLinks(friendChildrenLinks,
+				"delete friend", "/{id}", "DELETE");
+		idChildrenLinks = new JsonArray();
+		RestfulServiceUtil.addChildrenLinks(friendChildrenLinks,
+				"search friend", "/search", "GET");
+		searchChildrenLinks = new JsonArray();
 		
 		
 	}
