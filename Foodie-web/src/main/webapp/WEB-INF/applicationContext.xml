@@ -11,7 +11,7 @@
             <value>com.mysql.jdbc.Driver</value>  
         </property>  
         <property name="url">  
-            <value>jdbc:mysql://123.57.36.82:3306/foodie?useUnicode=true&amp;characterEncoding=utf8</value>  
+            <value>jdbc:mysql://123.57.36.82:3306/foodie?useUnicode=true&amp;characterEncoding=utf8</value>
         </property>  
         <property name="username">  
             <value>root</value>  
@@ -31,7 +31,15 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<!--  <value>edu/bjtu/nourriture_web/bean/Customer.hbm.xml</value>  -->
+				<value>cn/edu/bjtu/foodie/bean/Admin.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Book.hbm.xml</value> 
+				<value>cn/edu/bjtu/foodie/bean/Category.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Cmt.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Appointment.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Dish.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Foodie.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Friend.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Order.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -50,18 +58,9 @@
 	</bean>
 	
 	<!--Dao -->
-	<!-- 
-	<bean name="testDao" class="edu.bjtu.nourriture_web.dao.TestDao">
+	<bean name="adminDao" class="cn.edu.bjtu.foodie.dao.AdminDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
-	 -->
-	<!--业务逻辑类 -->
-	<!-- 
-	<bean id="testService"
-		class="edu.bjtu.nourriture_web.service.TestService">
-		<property name="testDao" ref="testDao"></property>
-	</bean>
- 	-->
 	<!-- Action -->
 	<!-- 
 	<bean id="testAction"
@@ -69,11 +68,9 @@
 		<property name="testService" ref="testService"></property>
 	</bean>
 	 -->
-	<!--restfulservice -->
-	<!--  
+	<!--restfulservice --> 
     <bean id="adminRestfulService"
-		class="edu.bjtu.nourriture_web.restfulservice.AdminRestfulService">
+		class="cn.edu.bjtu.foodie.restfulservice.AdminRestfulService">
 		<property name="adminDao" ref="adminDao"></property>
 	</bean>
-	-->
 </beans>
