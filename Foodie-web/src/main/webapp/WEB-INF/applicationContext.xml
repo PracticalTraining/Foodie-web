@@ -31,11 +31,11 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>cn/edu/bjtu/foodie/bean/Admin.hbm.xml</value>
+				<!-- <value>cn/edu/bjtu/foodie/bean/Admin.hbm.xml</value> -->
+				<value>cn/edu/bjtu/foodie/bean/Appointment.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Book.hbm.xml</value> 
 				<value>cn/edu/bjtu/foodie/bean/Category.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Cmt.hbm.xml</value>
-				<value>cn/edu/bjtu/foodie/bean/Appointment.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Dish.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Foodie.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Friend.hbm.xml</value>
@@ -72,10 +72,10 @@
 	</bean>
 	 -->
 	<!--restfulservice --> 
-    <bean id="adminRestfulService"
+    <!-- <bean id="adminRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.AdminRestfulService">
 		<property name="adminDao" ref="adminDao"></property>
-	</bean>
+	</bean> -->
 	    <bean id="friendRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.FriendRestfulService">
 		<property name="friendDao" ref="friendDao"></property>
