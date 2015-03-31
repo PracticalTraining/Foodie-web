@@ -15,6 +15,17 @@ public class FriendDao extends HibernateDaoSupport implements IFriendDao {
 		getHibernateTemplate().update(friend);
 		return friend.getId();
 	}
+	public Boolean isNotFriend(Foodie foodie,String id){
+		List<Friend> list = getHibernateTemplate().find("from Friend where foodieId = ? and friendId = ? and status = 0",foodie.getId(),id);
+		return list.isEmpty();
+	}
+	public void deleteFriend(Foodie foodie,String id){
+		Friend friend = new Friend();
+		friend.setFoodieId(foodie.getId());
+		friend.setFriendId(id);
+		getHibernateTemplate().delete(friend);
+		
+	}
 	
 
 

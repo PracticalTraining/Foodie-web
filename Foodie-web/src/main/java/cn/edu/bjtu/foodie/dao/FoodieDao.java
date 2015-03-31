@@ -24,5 +24,7 @@ public class FoodieDao extends HibernateDaoSupport implements IFoodieDao {
 		List<Foodie> list = getHibernateTemplate().find("from Foodie where id = ?", id);
 		return list.isEmpty() ? -1 : Integer.parseInt(list.get(0).getId());
 	}
-	
+	public Foodie getById(String id){
+		return getHibernateTemplate().get(Foodie.class, id);
+	}
 }

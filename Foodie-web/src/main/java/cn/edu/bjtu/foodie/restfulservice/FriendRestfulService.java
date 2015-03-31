@@ -105,6 +105,7 @@ public class FriendRestfulService {
 		// define error code
 		final int ERROR_CODE_USER_NOT_EXIST = -1;
 		final int ERROR_CODE_BAD_PARAM = -2;
+		final int ERROR_CODE_IS_NOT_FRIEND = -3;
 		// check request parameters
 		if(Integer.parseInt(id) <= 0){
 			ret.addProperty("errorCode", ERROR_CODE_BAD_PARAM);
@@ -118,23 +119,55 @@ public class FriendRestfulService {
 			ret.add("links", idChildrenLinks);
 			return ret.toString();
 		}
-		//delete one row
-		else{
-			Friend friend = new Friend();
-			friend.setId(foodie.getId());
-			
-			
-			
-			
-			
+		//check if user have this friend
+		if(friendDao.isNotFriend(foodie,id)){
+			ret.addProperty("errorCode", ERROR_CODE_IS_NOT_FRIEND);
+			ret.add("links", idChildrenLinks);
+			return ret.toString();
 		}
-		
-		
-		
-		
-		
+		//delete one row
+	    friendDao.deleteFriend(foodie,id);
+	    ret.addProperty("result", 0);
+		ret.add("links", idChildrenLinks);
 		return ret.toString();
 	}
 	
-
+	//search a friend 
+	@GET
+	@Path("search")
+	public String searchFriend(@PathParam("name") String name,@PathParam("foodie") Foodie foodie){
+		JsonObject ret = new JsonObject();
+		// define error code
+		final int ERROR_CODE_USER_NOT_EXIST = -1;
+		final int ERROR_CODE_BAD_PARAM = -2;
+		final int ERROR_CODE_IS_NOT_FRIEND = -3;
+		
+		// check request parameters
+     	if (name == null || name.equals("")) {
+			ret.addProperty("errorCode", ERROR_CODE_BAD_PARAM);
+			ret.add("links", idChildrenLinks);
+			return ret.toString();
+		}
+		// check if user name is already exist
+		if (foodieDao.isNameExistByName(name) == -1) {
+			ret.addProperty("errorCode", ERROR_CODE_USER_NOT_EXIST);
+			ret.add("links", idChildrenLinks);
+			return ret.toString();
+		}
+		//check if user have this friend
+		if(friendDao.isNotFriend(foodie,Integer.toString(foodieDao.isNameExistByName(name)))){
+			ret.addProperty("errorCode", ERROR_CODE_IS_NOT_FRIEND);
+			ret.add("links", idChildrenLinks);
+			return ret.toString();
+		}
+		Foodie resultfoodie = foodieDao.getById(Integer.toString(foodieDao.isNameExistByName(name)));
+		JsonObject jFoodie = new JsonObject();
+		jFoodie.addProperty("id", resultfoodie.getId());
+		jFoodie.addProperty("name",name);
+		jFoodie.addProperty("picture",resultfoodie.getPicture());
+		jFoodie.addProperty("phone",resultfoodie.getPhone());
+		ret.add("friend", jFoodie);
+		ret.add("links", searchChildrenLinks);
+		return ret.toString();
+	}
 }

@@ -7,10 +7,16 @@ import java.util.List;
 
 
 public interface IFriendDao {
-	/** add one row **/
+	/** add one friend **/
 	String add(Friend friend);
 
-	/** get foodie's id by name **/
+	/** check user have this friend **/
+	Boolean isNotFriend(Foodie foodie,String id);
+	
+	/**delete a friend **/
+	void deleteFriend(Foodie foodie,String id);
+
+	
 	
 	
 }
