@@ -10,7 +10,7 @@ public class Foodie {
 	/** foodie's photo **/
 	private String picture;
 	/** foodie's phone number **/
-	private String phone;
+	private int phone;
 	
 	public String getId() {
 		return id;
@@ -36,10 +36,10 @@ public class Foodie {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
-	public void setPhone(String phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 	

@@ -14,4 +14,17 @@ public interface IFoodieDao {
 	/** get foodie by id **/
 	Foodie getById(String id);
 	
+	/** add one row **/
+	int add(Foodie foodie);
+	/** search the foodie according to name **/
+	List<Foodie> searchByName(String name);
+	/** check if there exsit a row with given name and password
+	 *  @return -1 if not exsit
+	 *  @return customer id if exsit
+	 */
+	int login(String name,String password);
+	/** select a row by id **/
+	Foodie getById(int id);
+	/** update customer **/
+	void update(Foodie foodie);
 }
