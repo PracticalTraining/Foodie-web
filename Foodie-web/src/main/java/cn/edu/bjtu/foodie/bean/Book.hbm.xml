@@ -10,7 +10,7 @@
          <property name="foodieId"></property>
          <property name="restId"></property> 
          <property name="time"></property>
-         <property name="queueNumber"></property>
+         <property name="bookNumber"></property>
          <property name="status"></property>
     </class>
 </hibernate-mapping>  
