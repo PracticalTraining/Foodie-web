@@ -1,6 +1,7 @@
 package cn.edu.bjtu.foodie.restfulservice;
 
 import javax.ws.rs.FormParam;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -13,6 +14,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import cn.edu.bjtu.foodie.common.RestfulServiceUtil;
+import cn.edu.bjtu.foodie.dao.FoodieDao;
 import cn.edu.bjtu.foodie.idao.IFriendDao;
 import cn.edu.bjtu.foodie.bean.Friend;
 import cn.edu.bjtu.foodie.bean.Foodie;
@@ -30,6 +32,12 @@ public class FriendRestfulService {
 	private JsonArray friendChildrenLinks;
 	private JsonArray idChildrenLinks;
 	private JsonArray searchChildrenLinks;
+
+	
+	private JsonArray foodieChildrenLinks;
+	private JsonArray foodieidChildrenLinks;
+	private JsonArray searchfoodieChildrenLinks;
+	
 
 	// get set method for spring IOC
 
@@ -142,5 +150,4 @@ public class FriendRestfulService {
 			ret.add("links", searchChildrenLinks);
 			return ret.toString();
 	}
-
 }

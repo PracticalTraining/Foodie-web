@@ -27,4 +27,29 @@ public class FoodieDao extends HibernateDaoSupport implements IFoodieDao {
 	public Foodie getById(String id){
 		return getHibernateTemplate().get(Foodie.class, id);
 	}
+
+	public int add(Foodie foodie) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public List<Foodie> searchByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int login(String name, String password) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Foodie getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void update(Foodie foodie) {
+		// TODO Auto-generated method stub
+		
+	}
 }
