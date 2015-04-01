@@ -193,7 +193,7 @@ public class FriendRestfulService {
 			return ret.toString();
 		}
 		//check if user name is exsit
-		if(!foodieDao.isNameExistByName(name)){
+		if(foodieDao.isNameExistByName(name)==-1){
 			ret.addProperty("errorCode", ERROR_CODE_USER_NOT_EXIST);
 			ret.add("links", friendChildrenLinks);
 			return ret.toString();
@@ -217,7 +217,7 @@ public class FriendRestfulService {
 		JsonObject ret = new JsonObject();
 		//define error code
 		final int ERROR_CODE_FOODIE_NOT_EXIST = -1;
-		Foodie foodie = FoodieDao.getById(id);
+		Foodie foodie = foodieDao.getById(id);
 		if( foodie== null)
 		{
 			ret.addProperty("errorCode", ERROR_CODE_FOODIE_NOT_EXIST);
@@ -243,14 +243,15 @@ public class FriendRestfulService {
 		final int ERROR_CODE_FOODIE_NOT_EXIST = -1;
 		final int ERROR_CODE_BAD_PARAM = -2;
 		//check request parameters
+		Integer integer=new Integer(phone);
 		if(id <= 0 || name == null || name.equals("")
-		        || phone.length!=11){
+		        ||integer.toString().length()!=11){
 		           ret.addProperty("errorCode", ERROR_CODE_BAD_PARAM);
 	               ret.add("links", idChildrenLinks);
 		           return ret.toString();
 		    }
 		//check if foodie exsit
-		Foodie foodie = FoodieDao.getById(id);
+		Foodie foodie = foodieDao.getById(id);
 		if(foodie == null)
 		{
 			ret.addProperty("errorCode", ERROR_CODE_FOODIE_NOT_EXIST);
