@@ -64,6 +64,12 @@
 	<bean name="friendDao" class="cn.edu.bjtu.foodie.dao.FriendDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
+	<bean name="bookDao" class="cn.edu.bjtu.foodie.dao.BookDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>  
+	</bean>
+	<bean name="appointmentDao" class="cn.edu.bjtu.foodie.dao.AppointmentDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>  
+	</bean>
 	<!-- Action -->
 	<!-- 
 	<bean id="testAction"
@@ -76,9 +82,17 @@
 		class="cn.edu.bjtu.foodie.restfulservice.AdminRestfulService">
 		<property name="adminDao" ref="adminDao"></property>
 	</bean> -->
-	    <bean id="friendRestfulService"
+	<bean id="friendRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.FriendRestfulService">
 		<property name="friendDao" ref="friendDao"></property>
+	</bean>
+	<bean id="bookRestfulService"
+		class="cn.edu.bjtu.foodie.restfulservice.BookRestfulService">
+		<property name="bookDao" ref="bookDao"></property>
+	</bean>
+	<bean id="appointmentRestfulService"
+		class="cn.edu.bjtu.foodie.restfulservice.AppointmentRestfulService">
+		<property name="appointmentDao" ref="appointmentDao"></property>
 	</bean>
 	
 </beans>

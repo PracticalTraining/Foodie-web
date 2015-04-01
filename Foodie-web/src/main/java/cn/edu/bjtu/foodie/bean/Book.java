@@ -6,11 +6,11 @@ public class Book {
 	/** primary key of the foodie who submit the book **/
 	private String foodieId;
 	/** primary key of the restaurant where they have a meal **/
-	private String restId;
+	private int restId;
 	/** when meal begin **/
 	private java.util.Date time;
-	/** 0: not need queue, > 0: queue number(increment) **/
-	private int queueNumber;
+	/** book number **/
+	private int bookNumber;
 	/** 0: not confirm, 1: have confirmed **/
 	private int status;
 	
@@ -26,10 +26,10 @@ public class Book {
 	public void setFoodieId(String foodieId) {
 		this.foodieId = foodieId;
 	}
-	public String getRestId() {
+	public int getRestId() {
 		return restId;
 	}
-	public void setRestId(String restId) {
+	public void setRestId(int restId) {
 		this.restId = restId;
 	}
 	public java.util.Date getTime() {
@@ -38,11 +38,11 @@ public class Book {
 	public void setTime(java.util.Date time) {
 		this.time = time;
 	}
-	public int getQueueNumber() {
-		return queueNumber;
+	public int getBookNumber() {
+		return bookNumber;
 	}
-	public void setQueueNumber(int queueNumber) {
-		this.queueNumber = queueNumber;
+	public void setBookNumber(int bookNumber) {
+		this.bookNumber = bookNumber;
 	}
 	public int getStatus() {
 		return status;
@@ -54,7 +54,7 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", foodieId=" + foodieId + ", restId="
-				+ restId + ", time=" + time + ", queueNumber=" + queueNumber
+				+ restId + ", time=" + time + ", bookNumber=" + bookNumber
 				+ ", status=" + status + "]";
 	}
 }
