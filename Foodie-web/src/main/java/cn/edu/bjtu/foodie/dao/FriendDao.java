@@ -12,17 +12,17 @@ import cn.edu.bjtu.foodie.idao.IFoodieDao;
 
 public class FriendDao extends HibernateDaoSupport implements IFriendDao {
 	public String add(Friend friend){
-		getHibernateTemplate().update(friend);
+		getHibernateTemplate().save(friend);
 		return friend.getId();
 	}
-	public Boolean isNotFriend(Foodie foodie,String id){
-		List<Friend> list = getHibernateTemplate().find("from Friend where foodieId = ? and friendId = ? and status = 0",foodie.getId(),id);
+	public Boolean isNotFriend(String id,String foodieid){
+		
+		List<Friend> list = getHibernateTemplate().find("from Friend where foodieId = ? and friendId = ? and status = 0",foodieid,id);
 		return list.isEmpty();
 	}
-	public void deleteFriend(Foodie foodie,String id){
+	public void deleteFriend(String id){
 		Friend friend = new Friend();
-		friend.setFoodieId(foodie.getId());
-		friend.setFriendId(id);
+		friend.setId(id);
 		getHibernateTemplate().delete(friend);
 		
 	}

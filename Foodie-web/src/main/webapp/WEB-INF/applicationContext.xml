@@ -64,6 +64,9 @@
 	<bean name="friendDao" class="cn.edu.bjtu.foodie.dao.FriendDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
+		<bean name="foodieDao" class="cn.edu.bjtu.foodie.dao.FoodieDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>  
+	</bean>
 	<bean name="bookDao" class="cn.edu.bjtu.foodie.dao.BookDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
@@ -85,6 +88,7 @@
 	<bean id="friendRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.FriendRestfulService">
 		<property name="friendDao" ref="friendDao"></property>
+		<property name="foodieDao" ref="foodieDao"></property>
 	</bean>
 	<bean id="bookRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.BookRestfulService">
