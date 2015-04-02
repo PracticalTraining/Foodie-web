@@ -13,6 +13,9 @@ public interface IDishDao {
 
 	/** get dish by name **/
 	List<Dish> getByName(String name);
+	
+	/**get dish by id**/
+	public Dish getById(String id);
 
 	/** update the information of dish **/
 	void updateDish(Dish dish);

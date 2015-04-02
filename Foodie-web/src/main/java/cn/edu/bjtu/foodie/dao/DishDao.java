@@ -21,9 +21,14 @@ public class DishDao extends HibernateDaoSupport implements IDishDao {
 	}
 
 	public List<Dish> getByName(String name) {
-		List<Dish> list = getHibernateTemplate().find(
-				"from Dish where name like ?", "%" + name + "%");
-		return null;
+		List<Dish> list = null;
+		list = getHibernateTemplate().find("from Dish where name like ?",
+				"%" + name + "%");
+		return list;
+	}
+	
+	public Dish getById(String id){
+		return getHibernateTemplate().get(Dish.class, id);
 	}
 
 	public void updateDish(Dish dish) {
@@ -32,7 +37,9 @@ public class DishDao extends HibernateDaoSupport implements IDishDao {
 	}
 
 	public void deleteById(String id) {
-		getHibernateTemplate().delete("Dish where id=?", id);
+		Dish dish=new Dish();
+		dish.setId(id);
+		getHibernateTemplate().delete(dish);
 
 	}
 

@@ -76,6 +76,9 @@
 	<bean name="dishDao" class="cn.edu.bjtu.foodie.dao.DishDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
+	<bean name="categoryDao" class="cn.edu.bjtu.foodie.dao.CategoryDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>  
+	</bean>
 	
 	<!-- Action -->
 	<!-- 
@@ -105,6 +108,10 @@
 	<bean id="dishRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.DishRestfulService">
 		<property name="dishDao" ref="dishDao"></property>
+	</bean>
+	<bean id="categoryRestfulService"
+		class="cn.edu.bjtu.foodie.restfulservice.CategoryRestfulService">
+		<property name="categoryDao" ref="categoryDao"></property>
 	</bean>
 	
 </beans>
