@@ -73,6 +73,10 @@
 	<bean name="appointmentDao" class="cn.edu.bjtu.foodie.dao.AppointmentDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>  
 	</bean>
+	<bean name="dishDao" class="cn.edu.bjtu.foodie.dao.DishDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>  
+	</bean>
+	
 	<!-- Action -->
 	<!-- 
 	<bean id="testAction"
@@ -97,6 +101,10 @@
 	<bean id="appointmentRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.AppointmentRestfulService">
 		<property name="appointmentDao" ref="appointmentDao"></property>
+	</bean>
+	<bean id="dishRestfulService"
+		class="cn.edu.bjtu.foodie.restfulservice.DishRestfulService">
+		<property name="dishDao" ref="dishDao"></property>
 	</bean>
 	
 </beans>
