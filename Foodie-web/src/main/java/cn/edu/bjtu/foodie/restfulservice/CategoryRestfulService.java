@@ -51,7 +51,7 @@ public class CategoryRestfulService {
 		// define errorCode
 		final int ERROR_CODE_BAD_PARAM = -1;
 
-		System.out.println(name);
+		// System.out.println(name);
 		if (name.equals("") || name == null) {
 			ret.addProperty("errorCode", ERROR_CODE_BAD_PARAM);
 			ret.add("links", CategoryChildrenLinks);
@@ -86,7 +86,6 @@ public class CategoryRestfulService {
 		ret.add("category", jCategory);
 		ret.add("links", CategoryChildrenLinks);
 		return ret.toString();
-
 	}
 
 	/** update the Category **/
@@ -130,20 +129,18 @@ public class CategoryRestfulService {
 		// define errorCode
 		final int ERROR_CODE_BAD_PARAM = -1;
 		final int ERROR_CODE_DISHCATEGORY_NOT_EXIST = -2;
-		final int ERROR_CODE_NO_RESULT = -3;
-		
-		if(id==null||id.equals("")){
+		if (id == null || id.equals("")) {
 			ret.addProperty("errorcode", ERROR_CODE_BAD_PARAM);
 			ret.add("links", CategoryChildrenLinks);
 			return ret.toString();
 		}
-		if(categoryDao.isCategoryExist(id)==false){
+		if (categoryDao.isCategoryExist(id) == false) {
 			ret.addProperty("errorcode", ERROR_CODE_DISHCATEGORY_NOT_EXIST);
 			ret.add("links", CategoryChildrenLinks);
 			return ret.toString();
 		}
-		
-		Category deleteCategory=categoryDao.searchCategoryDetailById(id);
+
+		Category deleteCategory = categoryDao.searchCategoryDetailById(id);
 		categoryDao.delete(deleteCategory);
 		ret.addProperty("resule", 0);
 		return ret.toString();
