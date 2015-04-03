@@ -14,18 +14,21 @@
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="css/site.css" rel="stylesheet">
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-<script
+<!-- <script
 	src="http://apps.bdimg.com/libs/angular.js/1.1.4.0-beta.4/angular.min.js"
+	type="text/javascript" charset="utf-8"></script> -->
+<script src="//www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"
 	type="text/javascript" charset="utf-8"></script>
 <script src="angularjs/myApp.js" type="text/javascript" charset="utf-8"></script>
 <script src="angularjs/testController.js" type="text/javascript"
 	charset="utf-8"></script>
-
 </head>
 <body>
-	<div ng-app="myApp" ng-controller="testController">{{ firstName + " " +
-		lastName }}</div>
+	<div ng-app="myApp">
+		<div ng-controller="testController">{{firstName+" "+lastName}}</div>
+
+		<div ng-controller="httpController">{{res2}}</div>
+	</div>
 
 	<div class="container">
 		<div class="navbar">
@@ -189,12 +192,6 @@
 				</table>
 				<ul class="pager">
 					<li class="next"><a href="activity.htm">More &rarr;</a></li>
-				</ul>
-				<ul class="pager">
-					<li class="next">More Templates <a
-						href="http://www.mycodes.net/" target="_blank">源码之家</a> <a
-						href="http://www.mycodes.net/153/" title="网页模板" target="_blank">网页模板</a>
-					</li>
 				</ul>
 			</div>
 		</div>
