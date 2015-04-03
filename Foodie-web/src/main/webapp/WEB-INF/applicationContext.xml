@@ -5,21 +5,22 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!-- 定义数据源的信息 -->
-	<bean id="dataSource"  
-        class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
-        <property name="driverClassName">  
-            <value>com.mysql.jdbc.Driver</value>  
-        </property>  
-        <property name="url">  
-            <value>jdbc:mysql://123.57.36.82:3306/foodie?useUnicode=true&amp;characterEncoding=utf8</value>
-        </property>  
-        <property name="username">  
-            <value>root</value>  
-        </property>  
-        <property name="password">  
-            <value>root</value>  
-        </property>  
-    </bean> 
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://123.57.36.82:3306/foodie?useUnicode=true&amp;characterEncoding=utf8
+			</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>root</value>
+		</property>
+	</bean>
 
 	<!--定义Hibernate的SessionFactory -->
 	<!-- SessionFactory使用的数据源为上面的数据源 -->
@@ -33,7 +34,7 @@
 			<list>
 				<!-- <value>cn/edu/bjtu/foodie/bean/Admin.hbm.xml</value> -->
 				<value>cn/edu/bjtu/foodie/bean/Appointment.hbm.xml</value>
-				<value>cn/edu/bjtu/foodie/bean/Book.hbm.xml</value> 
+				<value>cn/edu/bjtu/foodie/bean/Book.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Category.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Cmt.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Dish.hbm.xml</value>
@@ -47,7 +48,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="show_sql">true</prop>
 				<prop key="hibernate.jdbc.batch_size">20</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>  
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>
@@ -56,62 +57,53 @@
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<!--Dao -->
 	<bean name="adminDao" class="cn.edu.bjtu.foodie.dao.AdminDao">
-	    <property name="sessionFactory" ref="sessionFactory"></property>  
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="friendDao" class="cn.edu.bjtu.foodie.dao.FriendDao">
-	    <property name="sessionFactory" ref="sessionFactory"></property>  
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-		<bean name="foodieDao" class="cn.edu.bjtu.foodie.dao.FoodieDao">
-	    <property name="sessionFactory" ref="sessionFactory"></property>  
+	<bean name="foodieDao" class="cn.edu.bjtu.foodie.dao.FoodieDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="bookDao" class="cn.edu.bjtu.foodie.dao.BookDao">
-	    <property name="sessionFactory" ref="sessionFactory"></property>  
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="appointmentDao" class="cn.edu.bjtu.foodie.dao.AppointmentDao">
-	    <property name="sessionFactory" ref="sessionFactory"></property>  
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="dishDao" class="cn.edu.bjtu.foodie.dao.DishDao">
-	    <property name="sessionFactory" ref="sessionFactory"></property>  
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="categoryDao" class="cn.edu.bjtu.foodie.dao.CategoryDao">
-	    <property name="sessionFactory" ref="sessionFactory"></property>  
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
+
 	<!-- Action -->
-	<!-- 
-	<bean id="testAction"
-		class="edu.bjtu.nourriture_web.action.TestAction">
-		<property name="testService" ref="testService"></property>
-	</bean>
-	 -->
-	<!--restfulservice --> 
-    <!-- <bean id="adminRestfulService"
-		class="cn.edu.bjtu.foodie.restfulservice.AdminRestfulService">
-		<property name="adminDao" ref="adminDao"></property>
-	</bean> -->
-	<bean id="friendRestfulService"
-		class="cn.edu.bjtu.foodie.restfulservice.FriendRestfulService">
+	<!-- <bean id="testAction" class="edu.bjtu.nourriture_web.action.TestAction"> 
+		<property name="testService" ref="testService"></property> </bean> -->
+	<!--restfulservice -->
+	<!-- <bean id="adminRestfulService" class="cn.edu.bjtu.foodie.restfulservice.AdminRestfulService"> 
+		<property name="adminDao" ref="adminDao"></property> </bean> -->
+	<bean id="friendRestfulService" class="cn.edu.bjtu.foodie.restfulservice.FriendRestfulService">
 		<property name="friendDao" ref="friendDao"></property>
 		<property name="foodieDao" ref="foodieDao"></property>
 	</bean>
-	<bean id="bookRestfulService"
-		class="cn.edu.bjtu.foodie.restfulservice.BookRestfulService">
+	<bean id="bookRestfulService" class="cn.edu.bjtu.foodie.restfulservice.BookRestfulService">
 		<property name="bookDao" ref="bookDao"></property>
 	</bean>
 	<bean id="appointmentRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.AppointmentRestfulService">
 		<property name="appointmentDao" ref="appointmentDao"></property>
 	</bean>
-	<bean id="dishRestfulService"
-		class="cn.edu.bjtu.foodie.restfulservice.DishRestfulService">
+	<bean id="dishRestfulService" class="cn.edu.bjtu.foodie.restfulservice.DishRestfulService">
 		<property name="dishDao" ref="dishDao"></property>
 	</bean>
 	<bean id="categoryRestfulService"
 		class="cn.edu.bjtu.foodie.restfulservice.CategoryRestfulService">
 		<property name="categoryDao" ref="categoryDao"></property>
 	</bean>
-	
+
 </beans>

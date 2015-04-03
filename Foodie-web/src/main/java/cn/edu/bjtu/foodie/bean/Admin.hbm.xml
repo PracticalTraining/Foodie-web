@@ -1,13 +1,5 @@
-<!-- <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC 
-   "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
-	<class name="cn.edu.bjtu.foodie.bean.Admin">
-		<id name="id" column="id">
-			<generator class="guid" />
-		</id>
-		<property name="name"></property>
-		<property name="password"></property>
-	</class>
-</hibernate-mapping>   -->
+<!-- <?xml version="1.0"?> <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate 
+	Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+	<hibernate-mapping> <class name="cn.edu.bjtu.foodie.bean.Admin"> <id name="id" 
+	column="id"> <generator class="guid" /> </id> <property name="name"></property> 
+	<property name="password"></property> </class> </hibernate-mapping> -->
