@@ -14,10 +14,19 @@
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="css/site.css" rel="stylesheet">
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<script src="angularjs/angular.min.js" type="text/javascript"
+
+<script
+	src="http://apps.bdimg.com/libs/angular.js/1.1.4.0-beta.4/angular.min.js"
+	type="text/javascript" charset="utf-8"></script>
+<script src="angularjs/myApp.js" type="text/javascript" charset="utf-8"></script>
+<script src="angularjs/testController.js" type="text/javascript"
 	charset="utf-8"></script>
+
 </head>
 <body>
+	<div ng-app="myApp" ng-controller="testController">{{ firstName + " " +
+		lastName }}</div>
+
 	<div class="container">
 		<div class="navbar">
 			<div class="navbar-inner">

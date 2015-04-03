@@ -1,1 +1,1 @@
-{"ide":{},"plugins":{"guess-types":{},"angular":{}},"libs":["ecma5","browser"]}
+{"ide":{"scriptPaths":[{"type":"FILE","path":"src/main/webapp/index.html"},{"type":"FOLDER","path":"src/main/webapp/angularjs"},{"type":"FOLDER","path":"src/main/webapp/js"}]},"plugins":{"guess-types":{},"angular":{}},"libs":["ecma5","browser"]}
