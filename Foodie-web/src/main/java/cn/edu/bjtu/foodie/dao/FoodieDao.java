@@ -14,9 +14,9 @@ import cn.edu.bjtu.foodie.idao.IFoodieDao;
 public class FoodieDao extends HibernateDaoSupport implements IFoodieDao {
 
 	
-	public int isNameExistByName(String name){
+	public String isNameExistByName(String name){
 		List<Foodie> list = getHibernateTemplate().find("from Foodie where name = ?", name);
-		return list.isEmpty() ? -1 : Integer.parseInt(list.get(0).getId());
+		return list.isEmpty() ? "-1" : list.get(0).getId();
 		
 	}
 	

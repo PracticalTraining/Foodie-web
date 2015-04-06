@@ -83,7 +83,7 @@ public class FoodieRestfulService {
 				return ret.toString();
 			}
 			//check if user name is exsit
-			if(foodieDao.isNameExistByName(name)==-1){
+			if(foodieDao.isNameExistByName(name)=="-1"){
 				ret.addProperty("errorCode", ERROR_CODE_USER_NOT_EXIST);
 				ret.add("links", friendChildrenLinks);
 				return ret.toString();

@@ -8,7 +8,7 @@ import java.util.List;
 public interface IFoodieDao {
 	
 	/** check if name is already exist **/
-	int isNameExistByName(String name);
+	String isNameExistByName(String name);
 	/** check if name is exist by id **/
 	int isNameExistById(String id);
 	/** get foodie by id **/

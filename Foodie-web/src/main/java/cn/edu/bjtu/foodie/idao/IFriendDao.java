@@ -11,10 +11,10 @@ public interface IFriendDao {
 	String add(Friend friend);
 
 	/** check user have this friend **/
-	Boolean isNotFriend(Foodie foodie,String id);
+	Boolean isNotFriend(String id,String foodieid);
 	
 	/**delete a friend **/
-	void deleteFriend(Foodie foodie,String id);
+	void deleteFriend(String id);
 
 	
 	
