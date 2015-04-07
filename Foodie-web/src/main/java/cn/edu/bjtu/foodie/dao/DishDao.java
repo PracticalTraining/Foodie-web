@@ -10,6 +10,7 @@ import cn.edu.bjtu.foodie.idao.IDishDao;
 public class DishDao extends HibernateDaoSupport implements IDishDao {
 
 	public boolean isDishExistByName(String name) {
+		@SuppressWarnings("unchecked")
 		List<Dish> list = getHibernateTemplate().find("from Dish where name=?",
 				name);
 		return !list.isEmpty();
@@ -20,14 +21,22 @@ public class DishDao extends HibernateDaoSupport implements IDishDao {
 		return dish.getId();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Dish> getByName(String name) {
 		List<Dish> list = null;
 		list = getHibernateTemplate().find("from Dish where name like ?",
 				"%" + name + "%");
 		return list;
 	}
-	
-	public Dish getById(String id){
+
+	@SuppressWarnings("unchecked")
+	public List<Dish> getDishes() {
+		List<Dish> list = null;
+		list = getHibernateTemplate().find("from Dish");
+		return list;
+	}
+
+	public Dish getById(String id) {
 		return getHibernateTemplate().get(Dish.class, id);
 	}
 
@@ -37,7 +46,7 @@ public class DishDao extends HibernateDaoSupport implements IDishDao {
 	}
 
 	public void deleteById(String id) {
-		Dish dish=new Dish();
+		Dish dish = new Dish();
 		dish.setId(id);
 		getHibernateTemplate().delete(dish);
 

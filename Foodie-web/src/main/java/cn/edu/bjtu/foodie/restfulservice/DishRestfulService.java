@@ -137,6 +137,29 @@ public class DishRestfulService {
 		return ret.toString();
 	}
 
+	/** get dishes **/
+	@GET
+	@Path("searchdish")
+	public String getDishes() {
+		JsonObject ret = new JsonObject();
+
+		List<Dish> list = dishDao.getDishes();
+		JsonArray dishs = new JsonArray();
+		for (Dish dish : list) {
+			JsonObject jDish = new JsonObject();
+			jDish.addProperty("id", dish.getId());
+			jDish.addProperty("name", dish.getName());
+			jDish.addProperty("price", dish.getPrice());
+			jDish.addProperty("restId", dish.getRestId());
+			jDish.addProperty("categoryId", dish.getCategoryId());
+
+			dishs.add(jDish);
+		}
+		ret.add("dish", dishs);
+		ret.add("links", searchChildrenLinks);
+		return ret.toString();
+	}
+
 	/** update dish by id **/
 	@PUT
 	@Path("{id}")
@@ -191,10 +214,10 @@ public class DishRestfulService {
 		JsonObject ret = new JsonObject();
 		// define error code
 		final int ERROR_CODE_DISH_NOT_EXIST = -1;
-		Dish dish=dishDao.getById(id);
-		
-		//check if food is exist
-		if(dish==null){
+		Dish dish = dishDao.getById(id);
+
+		// check if food is exist
+		if (dish == null) {
 			ret.addProperty("errorcode", ERROR_CODE_DISH_NOT_EXIST);
 			ret.add("links", idChildrenLinks);
 			return ret.toString();
