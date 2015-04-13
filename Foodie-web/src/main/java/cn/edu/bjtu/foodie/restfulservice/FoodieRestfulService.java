@@ -18,6 +18,7 @@ import cn.edu.bjtu.foodie.idao.IFriendDao;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+@Path("foodie")
 public class FoodieRestfulService {
 
 	//dao
