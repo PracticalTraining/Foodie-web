@@ -3,14 +3,14 @@
    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="cn.edu.bjtu.foodie.bean.Book">
-         <id name="id" column="id"> 
-  			<generator class="guid" /> 
-         </id>
-         <property name="foodieId"></property>
-         <property name="restId"></property> 
-         <property name="time"></property>
-         <property name="bookNumber"></property>
-         <property name="status"></property>
-    </class>
+	<class name="cn.edu.bjtu.foodie.bean.Book">
+		<id name="id" column="id">
+			<generator class="guid" />
+		</id>
+		<property name="foodieId"></property>
+		<property name="restId"></property>
+		<property name="time"></property>
+		<property name="bookNumber"></property>
+		<property name="status"></property>
+	</class>
 </hibernate-mapping>  
