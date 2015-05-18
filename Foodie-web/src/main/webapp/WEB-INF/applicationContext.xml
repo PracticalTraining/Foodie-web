@@ -41,6 +41,7 @@
 				<value>cn/edu/bjtu/foodie/bean/Foodie.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Friend.hbm.xml</value>
 				<value>cn/edu/bjtu/foodie/bean/Order.hbm.xml</value>
+				<value>cn/edu/bjtu/foodie/bean/Restaurant.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -80,6 +81,9 @@
 	<bean name="categoryDao" class="cn.edu.bjtu.foodie.dao.CategoryDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean name="restaurantDao" class="cn.edu.bjtu.foodie.dao.RestaurantDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<!-- Action -->
 	<!-- <bean id="testAction" class="edu.bjtu.nourriture_web.action.TestAction"> 
 		<property name="testService" ref="testService"></property> </bean> -->
@@ -110,5 +114,8 @@
 		class="cn.edu.bjtu.foodie.restfulservice.CategoryRestfulService">
 		<property name="categoryDao" ref="categoryDao"></property>
 	</bean>
-
+    <bean id="restaurantRestfulService"
+		class="cn.edu.bjtu.foodie.restfulservice.RestaurantRestfulService">
+		<property name="restaurantDao" ref="restaurantDao"></property>
+	</bean>
 </beans>
