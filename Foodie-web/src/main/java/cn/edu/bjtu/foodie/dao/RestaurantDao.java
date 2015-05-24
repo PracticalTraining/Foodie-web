@@ -15,7 +15,7 @@ public class RestaurantDao extends HibernateDaoSupport implements IRestaurantDao
 	
 	public List<Restaurant> getAll(){
 		List<Restaurant> list;
-		list = getHibernateTemplate().find("from bean.Restaurant");
+		list = getHibernateTemplate().find("from Restaurant");
 		return list;
 	}
 }
