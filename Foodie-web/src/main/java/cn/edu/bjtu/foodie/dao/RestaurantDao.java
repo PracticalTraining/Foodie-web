@@ -1,5 +1,7 @@
 package cn.edu.bjtu.foodie.dao;
 
+import java.util.List;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.bjtu.foodie.bean.Foodie;
@@ -11,4 +13,9 @@ public class RestaurantDao extends HibernateDaoSupport implements IRestaurantDao
 		return getHibernateTemplate().get(Restaurant.class, id);
 	}
 	
+	public List<Restaurant> getAll(){
+		List<Restaurant> list;
+		list = getHibernateTemplate().find("from bean.Restaurant");
+		return list;
+	}
 }

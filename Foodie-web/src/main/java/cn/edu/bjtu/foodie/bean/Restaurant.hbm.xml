@@ -11,6 +11,6 @@
 		<property name="description"></property>
 		<property name="longitude"></property>
 		<property name="latitude"></property>
-		<property name="picture"></property>
+		<property name="pictureUrl"></property>
 	</class>
 </hibernate-mapping> 

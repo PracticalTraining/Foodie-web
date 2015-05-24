@@ -1,5 +1,7 @@
 package cn.edu.bjtu.foodie.restfulservice;
 
+import java.util.List;
+
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -19,7 +21,8 @@ import cn.edu.bjtu.foodie.common.RestfulServiceUtil;
 import cn.edu.bjtu.foodie.idao.IRestaurantDao;
 
 
-@Path("friend")
+
+@Path("restaurant")
 @Produces("application/json;charset=UTF-8")
 public class RestaurantRestfulService {
 
@@ -67,7 +70,7 @@ public class RestaurantRestfulService {
 		JsonObject jRestaurant = new JsonObject();
 		jRestaurant.addProperty("id", resultrestaurant.getId());
 		jRestaurant.addProperty("name", resultrestaurant.getName());
-		jRestaurant.addProperty("picture", resultrestaurant.getPicture());
+		jRestaurant.addProperty("picture", resultrestaurant.getPictureUrl());
 		jRestaurant.addProperty("description", resultrestaurant.getDescription());
 		jRestaurant.addProperty("longitude", resultrestaurant.getLongitude());
 		jRestaurant.addProperty("latitude", resultrestaurant.getLatitude());
@@ -84,6 +87,30 @@ public class RestaurantRestfulService {
 			ret.add("links", searchrestaurantChildrenLinks);
 			return ret.toString();
 	}
-}
 
+/** get all restaurant **/
+@GET
+@Path("searchall")
+public String searchAllRestaurant() {
+	JsonObject ret = new JsonObject();
+	List<Restaurant> listResult = restaurantDao.getAll();
+	JsonArray restaurants = new JsonArray();
+    for(Restaurant restaurant:listResult){
+    	JsonObject jRest = new JsonObject();
+    	jRest.addProperty("id",restaurant.getId());
+    	jRest.addProperty("name",restaurant.getName());
+    	jRest.addProperty("longitude",restaurant.getLongitude());
+    	jRest.addProperty("latitude",restaurant.getLatitude());
+    	jRest.addProperty("description",restaurant.getDescription());
+    	jRest.addProperty("pictureUrl",restaurant.getPictureUrl());
+    	
+    	restaurants.add(jRest);
+    }
+    ret.add("restaurants",restaurants);
+	ret.add("links", searchChildrenLinks);
+    
+		return ret.toString();
+
+}
+}
 

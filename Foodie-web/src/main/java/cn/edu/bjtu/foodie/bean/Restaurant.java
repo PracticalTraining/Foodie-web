@@ -11,7 +11,7 @@ public class Restaurant {
 	private float longitude;
 	private float latitude;
 	/**   picture  **/
-	private String picture;
+	private String pictureUrl;
 	
 
 	public String getId() {
@@ -50,11 +50,11 @@ public class Restaurant {
     public void setLatitude(float latitude){
     	this.latitude = latitude;
     }
-    public String getPicture(){
-    	return picture;
+    public String getPictureUrl(){
+    	return pictureUrl;
     }
-    public void setPicture(String picture){
-    	this.picture = picture;
+    public void setPictureUrl(String pictureUrl){
+    	this.pictureUrl = pictureUrl;
     }
 
 }
