@@ -96,7 +96,9 @@ public class FoodieRestfulService {
 				ret.add("links", friendChildrenLinks);
 				return ret.toString();
 			}
-			ret.addProperty("id", loginResult);
+			Foodie foodie = foodieDao.getById(foodieDao.isNameExistByName(name));
+			
+			ret.addProperty("foodieid", foodie.getId());
 			ret.add("links", friendChildrenLinks);
 			return ret.toString();
 		}
