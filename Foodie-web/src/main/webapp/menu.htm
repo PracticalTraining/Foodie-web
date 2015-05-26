@@ -20,7 +20,11 @@
 <script src="//www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"
 	type="text/javascript" charset="utf-8"></script>
 <script src="angularjs/myApp.js" type="text/javascript" charset="utf-8"></script>
-<script src="angularjs/testController.js" type="text/javascript"
+<script src="angularjs/getDishController.js" type="text/javascript"
+	charset="utf-8"></script>
+<script src="angularjs/postDishController.js" type="text/javascript"
+	charset="utf-8"></script>
+	<script src="angularjs/updateDishController.js" type="text/javascript"
 	charset="utf-8"></script>
 </head>
 <body>
@@ -34,8 +38,8 @@
 					</a> <a class="brand" href="#">Foodie</a>
 					<div class="nav-collapse">
 						<ul class="nav">
-								<li><a href="index.html">Dashboard</a></li>
-								<li class="active"><a href="menu.htm">Menu</a></li>
+							<li><a href="index.html">Dashboard</a></li>
+							<li class="active"><a href="menu.htm">Menu</a></li>
 						</ul>
 						<form class="navbar-search pull-left" action="">
 							<input type="text" class="search-query span2"
@@ -60,63 +64,114 @@
 			<div class="span9">
 				<h1>Menu</h1>
 				<table class="table table-bordered table-striped"
-						ng-controller="httpController">
-						<thead>
-							<tr>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Price</th>
-								<th>RestId</th>
-								<th>CategoryId</th>
-								<th>Manage</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="dishes in dish">
-								<td>{{dishes.id}}</td>
-								<td>{{dishes.name}}</td>
-								<td>{{dishes.price}}</td>
-								<td>{{dishes.restId}}</td>
-								<td>{{dishes.categoryId}}</td>
-								<td><a href="profile.htm" class="btn btn-primary">Manage</a></td>
-							</tr>
-						</tbody>
-					</table>
+					ng-controller="getController">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>RestId</th>
+							<th>CategoryId</th>
+							<th>Manage</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="dishes in dish">
+							<td>{{$index + 1}}</td>
+							<td>{{dishes.name}}</td>
+							<td>{{dishes.price}}</td>
+							<td>{{dishes.restId}}</td>
+							<td>{{dishes.categoryId}}</td>
+							<td><a href="profile.htm" class="btn btn-primary" ng-click="direct(dishes.name)">Manage</a>
+								<button class="btn btn-primary pull-right" ng-click="remove($index,dishes.id)">Delete</button></td>
+						</tr>
+					</tbody>
+				</table>
 				<a class="toggle-link" href="#new-project"><i class="icon-plus"></i>
-					New Project</a>
-				<form id="new-project" class="form-horizontal hidden">
-					<fieldset>
-						<legend>New Project</legend>
-						<div class="control-group">
-							<label class="control-label" for="input01">Project Name</label>
-							<div class="controls">
-								<input type="text" class="input-xlarge" id="input01" />
-							</div>
+					New Dish</a>
+				<form ng-controller="postController" id="new-project"
+					class="form-horizontal hidden">
+					<legend>New Dish</legend>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.name" />
 						</div>
-						<div class="control-group">
-							<label class="control-label" for="select01">Client</label>
-							<div class="controls">
-								<select id="select01">
-									<option>-- Select client --</option>
-									<option>Bad Robot</option>
-									<option>Evil Genius</option>
-									<option>Monsters Inc</option>
-								</select>
-							</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Price</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.price" />
 						</div>
-						<div class="control-group">
-							<label class="control-label" for="textarea">Project
-								Summary</label>
-							<div class="controls">
-								<textarea class="input-xlarge" id="textarea" rows="3"></textarea>
-							</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Restaurant Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.restId" />
 						</div>
-						<div class="form-actions">
-							<button type="submit" class="btn btn-primary">Create</button>
-							<button class="btn">Cancel</button>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Category Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.categoryId" />
 						</div>
-					</fieldset>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary"
+							ng-click="processForm()">Create</button>
+						<button class="btn">Cancel</button>
+					</div>
+					<!-- <pre>{{ formData }}</pre>
+					<div id="messages" ng-show="message">{{ message }}</div> -->
 				</form>
+				
+				<a class="toggle-link" href="#new-project"><i class="icon-plus"></i>
+					Update Dish</a>
+				<form ng-controller="postController" id="new-project"
+					class="form-horizontal hidden">
+					<legend>New Dish</legend>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.name" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Price</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.price" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Restaurant Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.restId" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Category Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.categoryId" />
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary"
+							ng-click="processForm()">Create</button>
+						<button class="btn">Cancel</button>
+					</div>
+					<!-- <pre>{{ formData }}</pre>
+					<div id="messages" ng-show="message">{{ message }}</div> -->
+				</form>
+
+
 			</div>
 		</div>
 	</div>

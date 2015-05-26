@@ -20,7 +20,7 @@
 <script src="//www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"
 	type="text/javascript" charset="utf-8"></script>
 <script src="angularjs/myApp.js" type="text/javascript" charset="utf-8"></script>
-<script src="angularjs/testController.js" type="text/javascript"
+<script src="angularjs/getDishController.js" type="text/javascript"
 	charset="utf-8"></script>
 </head>
 <body>
@@ -58,11 +58,12 @@
 						</ul>
 					</div>
 				</div>
-				<div class="span9">
+				<div class="span9" ng-controller="getController">
 					<h1>Welcome!</h1>
 					<div class="well summary">
 						<ul>
-							<li><a href="#"><span class="count">3</span> Projects</a></li>
+							<li><a href="#"><span class="count">{{NumberOfDish}}</span>
+									Dish(s)</a></li>
 							<li><a href="#"><span class="count">27</span> Tasks</a></li>
 							<li><a href="#"><span class="count">7</span> Messages</a></li>
 							<li class="last"><a href="#"><span class="count">5</span>
@@ -71,8 +72,7 @@
 					</div>
 					<h2>Recent Menu</h2>
 
-					<table class="table table-bordered table-striped"
-						ng-controller="httpController">
+					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
 								<th>Id</th>
@@ -85,7 +85,7 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="dishes in dish">
-								<td>{{dishes.id}}</td>
+								<td>{{$index + 1}}</td>
 								<td>{{dishes.name}}</td>
 								<td>{{dishes.price}}</td>
 								<td>{{dishes.restId}}</td>
