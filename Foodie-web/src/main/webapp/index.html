@@ -25,7 +25,7 @@
 </head>
 <body>
 	<div ng-app="myApp">
-		<div class="container">
+		<div class="container" ng-controller="getController">
 			<div class="navbar">
 				<div class="navbar-inner">
 					<div class="container">
@@ -40,7 +40,7 @@
 							</ul>
 							<form class="navbar-search pull-left" action="">
 								<input type="text" class="search-query span2"
-									placeholder="Search" />
+									placeholder="Search" ng-model="subjectName" />
 							</form>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="span9" ng-controller="getController">
+				<div class="span9">
 					<h1>Welcome!</h1>
 					<div class="well summary">
 						<ul>
@@ -84,13 +84,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="dishes in dish">
+							<tr ng-repeat="dishes in dish | filter: subjectName">
 								<td>{{$index + 1}}</td>
 								<td>{{dishes.name}}</td>
 								<td>{{dishes.price}}</td>
 								<td>{{dishes.restId}}</td>
 								<td>{{dishes.categoryId}}</td>
-								<td><a href="profile.htm" class="btn btn-primary">Manage</a></td>
+								<td><a href="menu.htm" class="btn btn-primary">Manage</a></td>
 							</tr>
 						</tbody>
 					</table>

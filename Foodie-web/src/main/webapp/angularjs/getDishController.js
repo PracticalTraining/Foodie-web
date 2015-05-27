@@ -2,6 +2,7 @@
  * 
  */
 app.controller("getController", function($scope, $http) {
+	$scope.nameFilter = null;
 	$scope.dishId = {};
 	// var dish = {
 	// name : 1
@@ -46,5 +47,6 @@ app.controller("getController", function($scope, $http) {
 			}
 		});
 	};
-	
+
+
 });

@@ -82,8 +82,9 @@
 							<td>{{dishes.price}}</td>
 							<td>{{dishes.restId}}</td>
 							<td>{{dishes.categoryId}}</td>
-							<td><a href="profile.htm" class="btn btn-primary" ng-click="direct(dishes.name)">Manage</a>
-								<button class="btn btn-primary pull-right" ng-click="remove($index,dishes.id)">Delete</button></td>
+							<td>
+							<!-- <a href="profile.htm" class="btn btn-primary" ng-click="direct(dishes.name)">Update</a> -->
+								<button class="btn btn-primary" ng-click="remove($index,dishes.id)">Delete</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -129,9 +130,8 @@
 					<div id="messages" ng-show="message">{{ message }}</div> -->
 				</form>
 				
-				<a class="toggle-link" href="#new-project"><i class="icon-plus"></i>
-					Update Dish</a>
-				<form ng-controller="postController" id="new-project"
+				
+				<form ng-controller="postController" id="new-project1"
 					class="form-horizontal hidden">
 					<legend>New Dish</legend>
 					<div class="control-group">
@@ -164,11 +164,9 @@
 					</div>
 					<div class="form-actions">
 						<button type="submit" class="btn btn-primary"
-							ng-click="processForm()">Create</button>
+							ng-click="processForm()">Save</button>
 						<button class="btn">Cancel</button>
 					</div>
-					<!-- <pre>{{ formData }}</pre>
-					<div id="messages" ng-show="message">{{ message }}</div> -->
 				</form>
 
 
