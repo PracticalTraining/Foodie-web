@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]-->
+<!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Menu - Foodie</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="css/site.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!-- <script
+	src="http://apps.bdimg.com/libs/angular.js/1.1.4.0-beta.4/angular.min.js"
+	type="text/javascript" charset="utf-8"></script> -->
+<script src="//www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"
+	type="text/javascript" charset="utf-8"></script>
+<script src="angularjs/myApp.js" type="text/javascript" charset="utf-8"></script>
+<script src="angularjs/getDishController.js" type="text/javascript"
+	charset="utf-8"></script>
+<script src="angularjs/postDishController.js" type="text/javascript"
+	charset="utf-8"></script>
+	<script src="angularjs/updateDishController.js" type="text/javascript"
+	charset="utf-8"></script>
+</head>
+<body>
+	<div class="container" ng-app="myApp">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+					</a> <a class="brand" href="#">Foodie</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li><a href="index.html">Dashboard</a></li>
+							<li class="active"><a href="menu.htm">Menu</a></li>
+						</ul>
+						<form class="navbar-search pull-left" action="">
+							<input type="text" class="search-query span2"
+								placeholder="Search" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<div class="well" style="padding: 8px 0;">
+					<ul class="nav nav-list">
+						<li class="nav-header">Akira</li>
+						<li><a href="index.html"><i class="icon-home"></i>
+								Dashboard</a></li>
+						<li class="active"><a href="menu.htm"><i
+								class="icon-white icon-list-alt"></i> Menu</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span9">
+				<h1>Menu</h1>
+				<table class="table table-bordered table-striped"
+					ng-controller="getController">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>RestId</th>
+							<th>CategoryId</th>
+							<th>Manage</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="dishes in dish">
+							<td>{{$index + 1}}</td>
+							<td>{{dishes.name}}</td>
+							<td>{{dishes.price}}</td>
+							<td>{{dishes.restId}}</td>
+							<td>{{dishes.categoryId}}</td>
+							<td>
+							<!-- <a href="profile.htm" class="btn btn-primary" ng-click="direct(dishes.name)">Update</a> -->
+								<button class="btn btn-primary" ng-click="remove($index,dishes.id)">Delete</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<a class="toggle-link" href="#new-project"><i class="icon-plus"></i>
+					New Dish</a>
+				<form ng-controller="postController" id="new-project"
+					class="form-horizontal hidden">
+					<legend>New Dish</legend>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.name" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Price</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.price" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Restaurant Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.restId" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Category Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.categoryId" />
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary"
+							ng-click="processForm()">Create</button>
+						<button class="btn">Cancel</button>
+					</div>
+					<!-- <pre>{{ formData }}</pre>
+					<div id="messages" ng-show="message">{{ message }}</div> -->
+				</form>
+				
+				
+				<form ng-controller="postController" id="new-project1"
+					class="form-horizontal hidden">
+					<legend>New Dish</legend>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.name" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Dish Price</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.price" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Restaurant Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.restId" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input01">Category Id</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="input01"
+								ng-model="formData.categoryId" />
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary"
+							ng-click="processForm()">Save</button>
+						<button class="btn">Cancel</button>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/site.js"></script>
+</body>
+</html>
