@@ -8,8 +8,8 @@ public class Restaurant {
 	/** description **/
 	private String description;
 	/**  location  **/
-	private float longitude;
-	private float latitude;
+	private double longitude;
+	private double latitude;
 	/**   picture  **/
 	private String pictureUrl;
 	
@@ -38,13 +38,13 @@ public class Restaurant {
 		this.description = description;
 	}
 
-    public float getLongitude(){
+    public double getLongitude(){
     	return longitude;
     }
     public void setLongitude(float longitude){
     	this.longitude = longitude;
     }
-    public float getLatitude(){
+    public double getLatitude(){
     	return latitude;
     }
     public void setLatitude(float latitude){
